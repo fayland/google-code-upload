@@ -24,6 +24,8 @@ requires 'Term::ReadKey';
 
 build_requires 'Test::More';
 
+repository 'http://github.com/fayland/google-code-upload';
+
 install_script glob('script/*.pl');
 
 auto_install;
