@@ -1,5 +1,8 @@
 Revision history for Google-Code-Upload
 
+0.05    2010.2.5
+        fix binmode issue (RT 54202)
+
 0.04    2009.2.7
         bug fix in googlecode_upload.pl
 

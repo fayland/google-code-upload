@@ -14,7 +14,7 @@ use base 'Exporter';
 use vars qw/@EXPORT_OK/;
 @EXPORT_OK = qw/ upload /;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 our $AUTHORITY = 'cpan:FAYLAND';
 
 sub upload {
@@ -72,9 +72,12 @@ sub encode_upload_request {
     }
     
     my $filename = File::Basename::basename($file);
-    local $/;
     open(my $fh, '<', $file) or die $!;
-    my $content = <$fh>;
+    binmode($fh);
+    my $content = do {
+        local $/;
+        <$fh>;
+    };
     close($fh);
     
     push @body, (
